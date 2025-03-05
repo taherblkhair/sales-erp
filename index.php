@@ -135,7 +135,7 @@ if ($job_result) {
         <div class="dashboard-grid">
             <div class="dashboard-card">
                 <div class="card-header">
-                    <h3 class="card-title">الوظائف متاحة</h3>
+                    <h3 class="card-title">jjjj الوظائف متاحة</h3>
                     <div class="card-icon bg-blue">
                         <i class="fas fa-briefcase"></i>
                     </div>
