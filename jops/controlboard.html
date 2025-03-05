@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - وظفني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #f5f6f8;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: white;
+            height: 100vh;
+            position: fixed;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+       
+        h1 {
+            color: #2557a7;
+            font-size:25px;
+            padding-right:60px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2557a7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: #666;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: #e3f2fd;
+            color: #2557a7;
+        }
+
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .notification-badge {
+            background: #dc3545;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-right: auto;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-right: 280px;
+            padding: 2rem;
+            width: calc(100% - 280px);
+        }
+
+        .search-bar {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+.card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .bg-blue { background: #2557a7; }
+        .bg-green { background: #28a745; }
+        .bg-orange { background: #fd7e14; }
+        .bg-purple { background: #6f42c1; }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin: 1rem 0;
+        }
+
+        .card-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            width: 100%;
+            justify-content: center;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+        }
+
+        .logout-btn:hover {
+            background: #fff5f5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <h1>وظفني</h1>
+        </div>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <h3>أحمد محمد</h3>
+                <span>مدير التوظيف</span>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-home"></i>
+                لوحة التحكم
+            </a>
+            <a href="jobs-management.html" class="nav-item">
+                <i class="fas fa-briefcase"></i>
+                إدارة الوظائف
+            </a>
+            <a href="applicants-management.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                إدارة المتقدمين
+                <span class="notification-badge">4</span>
+            </a>
+            <a href="committee-management.html" class="nav-item">
+                <i class="fas fa-user-tie"></i>
+                إدارة لجنة التوظيف
+            </a>
+            <a href="interviews-management.html" class="nav-item">
+                <i class="fas fa-calendar-check"></i>
+                إدارة المقابلات
+                <span class="notification-badge">2</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+                إدارة السير الذاتية
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-cog"></i>
+                الإعدادات
+            </a>
+        </nav>
+
+        <button class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            تسجيل الخروج
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+ 
+</body>
+</html>
